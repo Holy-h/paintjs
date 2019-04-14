@@ -14,11 +14,43 @@ body {
   height: 700px;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 .controls {
-  margin-top: 80px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls .controls__range {
+  margin-bottom: 20px;
+}
+
+.controls .controls__btns {
+  margin-bottom: 20px;
+}
+
+.controls__btns button {
+  all: unset;
+  cursor: pointer;
+  background-color: white;
+  padding: 5px 0px;
+  width: 80px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.controls__btns button:active {
+  transform: scale(0.95);
+}
+
+.controls__btns button:hover {
+  color: #fff;
+  background-color: #0579ff;
 }
 
 .controls .controls__colors {
@@ -29,5 +61,5 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
