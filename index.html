@@ -21,9 +21,18 @@
         />
       </div>
       <div class="controls__btns">
-        <button id="jsMode">Fill</button>
         <button id="jsSave">Save</button>
         <button id="jsClear">Clear</button>
+        <div class="controls__mode">
+          <label>
+            <input type="radio" name="jsMode" value="Paint" checked="checked" />
+            Paint
+          </label>
+          <label>
+            <input type="radio" name="jsMode" value="Fill" />
+            Fill
+          </label>
+        </div>
       </div>
       <div class="controls__colors" id="jsColors">
         <div

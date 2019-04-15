@@ -6,6 +6,8 @@ const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
 const clearBtn = document.getElementById("jsClear");
 
+const radios = document.getElementsByName("jsMode");
+
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 700;
 
@@ -65,25 +67,9 @@ function handleRangeChange(event) {
   ctx.lineWidth = size;
 }
 
-function handleModeClick(event) {
-  if (filling === true) {
-    filling = false;
-    mode.innerText = "Fill";
-    event.target.style.backgroundColor = "";
-    event.target.style.color = "";
-  } else {
-    filling = true;
-    mode.innerText = "Paint";
-    event.target.style.backgroundColor = "#0579ff";
-    event.target.style.color = "#ffffff";
-  }
-}
-
 function handleCanvasClick() {
   if (filling) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-  } else {
-    console.log("drowing");
   }
 }
 
@@ -124,10 +110,6 @@ if (range) {
   range.addEventListener("input", handleRangeChange);
 }
 
-if (mode) {
-  mode.addEventListener("click", handleModeClick);
-}
-
 if (clearBtn) {
   clearBtn.addEventListener("click", handleclearBtnClick);
 }
@@ -135,3 +117,17 @@ if (clearBtn) {
 if (saveBtn) {
   saveBtn.addEventListener("click", handlesaveBtnClick);
 }
+
+// 라디오 버튼으로 모드 전환하기
+
+function handleRadioChange(event) {
+  if (this.value === "Paint") {
+    filling = false;
+  } else if (this.value === "Fill") {
+    filling = true;
+  }
+}
+
+Array.from(radios).forEach(radio =>
+  radio.addEventListener("change", handleRadioChange)
+);

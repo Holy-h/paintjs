@@ -53,6 +53,12 @@ body {
   background-color: #0579ff;
 }
 
+.controls__btns .controls__mode {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .controls .controls__colors {
   display: flex;
 }
