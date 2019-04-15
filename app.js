@@ -4,12 +4,19 @@ const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 
-canvas.width = 700;
-canvas.height = 700;
+const INITIAL_COLOR = "#2c2c2c";
+const CANVAS_SIZE = 700;
+
+canvas.width = CANVAS_SIZE;
+canvas.height = CANVAS_SIZE;
 
 // default ctx
-ctx.strokeStyle = "#2c2c2c";
+// color initialize
+ctx.strokeStyle = INITIAL_COLOR;
+ctx.fillStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
+
+// ctx.fillRect(50, 10, 100, 40);
 
 let painting = false;
 let filling = false;
@@ -44,6 +51,7 @@ function handleColorClick(event) {
   const color = event.target.style.backgroundColor;
   console.log(color);
   ctx.strokeStyle = color;
+  ctx.fillStyle = color;
 }
 
 function handleRangeChange(event) {
@@ -65,11 +73,20 @@ function handleModeClick(event) {
   }
 }
 
+function handleCanvasClick(event) {
+  if (filling) {
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  } else {
+    console.log("drowing");
+  }
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
+  canvas.addEventListener("click", handleCanvasClick);
 }
 
 Array.from(colors).forEach(potato =>
